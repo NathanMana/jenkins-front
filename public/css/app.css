@@ -1,0 +1,993 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+:root{
+    --main-color: #03203f;
+    --secondary-color: #fb9e1b;
+    --third-color: #fff;
+    --fourth-color: #1a1a1a;
+}
+
+html, body {
+    margin: 0;
+    padding:0;
+}
+
+h1, h2, h3, a, button {
+    text-transform: uppercase;
+}
+
+h1 {
+    color: var(--secondary-color);
+    margin-left: 100px;
+}
+
+h2 {
+    margin-left: 15px;
+    padding: 15px 0;
+}
+
+h3 {
+    margin:0;
+    padding:0;
+}
+
+section h3 {
+    margin-top:40px!important;
+}
+
+h4 {
+    font-weight: 300!important;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+button.btn {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.btn {
+    background: var(--secondary-color)!important;
+    color: var(--third-color)!important;
+    min-width: 150px;
+    padding: 10px 5px;
+    border: 2px solid var(--secondary-color)!important;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #fff!important;
+    color:var(--secondary-color)!important;
+}
+
+a {
+    text-decoration: none;
+    color: var(--third-color)!important;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    transition: 0.2s;
+}
+
+a:hover {
+    text-decoration: none!important;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    display: block;
+    top: 0;
+    z-index: 100;
+    background: var(--main-color);
+}
+
+nav {
+    padding: 0px 15px;
+    width: 100%;
+    z-index: 100;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: block;
+    margin: 0 auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0;
+}
+
+nav ul li {
+    color : var(--third-color);
+    display: inline-block;
+}
+
+ul li.active a {
+    color: var(--secondary-color)!important;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 30px;
+}
+
+ul li a:hover {
+    color:var(--secondary-color)!important;
+}
+
+.open-responsive-menu {
+    cursor: pointer;
+    right : 5%;
+    top : 50%;
+    position: absolute;
+    width : 30px;
+    z-index: 99999999;
+    height : 20px;
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.sous-menu {
+    width : 100%;
+    height : 2px;
+    background : #fff;
+    z-index: 5;
+}
+
+.sous-menu::before {
+    content: "";
+    width : 100%;
+    height : 2px;
+    position: absolute;
+    background : #fff;
+    top: 0;
+}
+.sous-menu::after {
+    content: "";
+    width : 100%;
+    height : 2px;
+    position: absolute;
+    background : #fff;
+    bottom: 0;
+}
+
+.responsive-menu {
+    position: absolute;
+    height: 0;
+    z-index: 99999;
+    background: var(--fourth-color);
+    color: var(--third-color);
+    width: 100%;
+    -webkit-transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+    left: 0;
+    top: 70px;
+    overflow: hidden;
+}
+
+.responsive-menu ul {
+    display: block;
+    padding:50px;
+    width: 500px;
+}
+
+.responsive-menu ul li {
+    padding: 0 30px;
+}
+
+article {
+    margin: 20px auto;
+}
+
+.show img {
+    width: 100%;
+    max-height: 400px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.border-padding {
+    margin: 15px;
+}
+
+section.margin {
+    margin: 15px auto;
+    width: 80%;
+}
+
+.block {
+    width: -webkit-fit-content!important;
+    width: -moz-fit-content!important;
+    width: fit-content!important;
+    margin: 0 auto!important;
+    display: block!important;
+    text-align: center!important;
+}
+
+.auto {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+}
+
+.white {
+    color: var(--third-color);
+}
+
+.dispo {
+    margin : 15px auto!important;
+    text-align: center;
+    display: block;
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
+    width:fit-content;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--fourth-color);
+    color: var(--third-color);
+    padding : 50px 15px;
+}
+
+footer ul,
+.responsive-menu ul {
+    list-style: none;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+footer ul li a,
+.responsive-menu ul li a {
+    color : var(--third-color);
+    padding: 2.5px 0;
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.social-media img:first-child {
+    margin-right: 15px;
+}
+
+.social-media img {
+    width: 75px;
+    height: 75px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    margin: 5px;
+}
+
+.form-group {
+    font-size:1.2em;
+}
+
+/* UTILISABLE POUR TOUS */
+
+.flexible {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.flex__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.flex__container__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.flex__justify_space {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+}
+
+.flex__justify_space h3 {
+    padding:0!important;
+    margin:0!important;
+    text-align: center;
+}
+
+.description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+
+.article {
+    border-radius: 15px;
+    -webkit-box-shadow: 2px 4px 19px -5px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 19px -5px rgba(0,0,0,0.75);
+    background-color: var(--third-color);
+}
+
+.article img {
+    width: 100%;
+    max-height: 400px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.article p {
+    padding: 20px;
+}
+
+/* CAROUSSEL */
+.caroussel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.caroussel-inner {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+.caroussel-item {
+    min-width: 100%;
+}
+
+.positionning {
+    margin: 10px;
+}
+
+.positionning .child {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--main-color);
+    margin: 5px;
+    cursor: pointer;
+}
+
+.positionning .child-white {
+    background: var(--third-color);
+    transition: 0.2s;
+}
+
+.positionning .child-white:hover {
+    background: var(--secondary-color);
+}
+
+.child-active {
+    background: var(--secondary-color)!important;
+}
+
+/* GESTION DES IMAGES */
+
+.img-sm {
+    width: 50px;
+}
+
+.img-lg {
+    width:100%;
+    max-height: 400px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+/* PAGE D ACCUEIL */
+.home {
+    height: 70vh;
+    background: 50% 30% / cover no-repeat url('../images/maison-vue-riviere.jpg');
+    position: relative;
+    z-index: -1;
+}
+
+.home::after {
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    z-index: -1;
+    background: #03203f83;
+}
+
+.picker {
+    background : var(--main-color);
+    border-radius: 15px;
+    width: 70%;
+    margin: 0 auto;
+    -webkit-transform:translateY(-50%);
+        -ms-transform:translateY(-50%);
+            transform:translateY(-50%);
+    padding: 10px;
+    -webkit-box-shadow: 2px 4px 19px -5px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 19px -5px rgba(0,0,0,0.75);
+}
+
+.avis {
+    width: 100%;
+    background: var(--main-color);
+}
+
+.img-moulin {
+    object-fit: cover;
+    object-position: bottom center;
+}
+
+/* PAGE CHAMBRE */
+.under-nav {
+    background-color: var(--secondary-color);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-top:70px;
+    padding:15px;
+}
+
+.container-calendar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 200px;
+}
+
+.calendar-controller {
+    background:var(--main-color);
+    width:100%;
+    margin-top:30px;
+    padding: 20px 20px;
+    border-radius: 15px;
+}
+
+.PlanningEntete,
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete
+{
+    background: var(--secondary-color)!important;
+    width: 110%!important;
+    -webkit-transform: translateX(-5%)!important;
+        -ms-transform: translateX(-5%)!important;
+            transform: translateX(-5%)!important;
+    border: 0!important;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -webkit-box-pack: center!important;
+        -ms-flex-pack: center!important;
+            justify-content: center!important;
+    -webkit-box-align: center!important;
+        -ms-flex-align: center!important;
+            align-items: center!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:link, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:active, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:visited,
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:link, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:active, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:visited
+{
+    background-color: var(--secondary-color)!important;
+    color: var(--third-color)!important;
+}
+
+.OsProduit.api .OsProduitPlanning .ui-widget-content {
+    background: var(--third-color)!important;
+    border:0!important;
+}
+
+.OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-default, .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-widget-content .ui-state-default {
+    background-color: transparent!important;
+    border-radius: 50%!important;
+    color: var(--fourth-color)!important;
+    border: 0!important;
+    text-align: center!important;
+    font-size: 1.5em!important;
+}
+
+.OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-disabled .ui-state-default, .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-disabled .ui-widget-content .ui-state-default {
+    font-size: 1.5em!important;
+}
+
+.OsProduit.api .OsProduitPlanning .etat0 .ui-state-default, .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-disabled.etat0 .ui-state-default, .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-disabled.etat0 .ui-widget-content .ui-state-default {
+    font-size: 1.5em!important;
+    background-color: var(--secondary-color)!important;
+    border-radius: 50%!important;
+    border:0!important;
+    color:var(--third-color)!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningForm .FormBox {
+    font-size:1.5em;
+}
+
+.OsPanierPopIn.os-overlay .BlocSupplement .Quantite .OsWrapSelect select, .OsProduit.api .OsMoteur .OsMoteurCriterisation .OsWrapSelect select.OsMoteurCombo, .OsProduit.api .OsMoteur .OsMoteurCriterisation select, .OsProduit.api .OsMoteurResultat .OsWrapSelect select, .OsProduit.api .TableHotel .TableHotel-Tr.Ligne .Chambre .OsWrapSelect select.OSCombo, body .OsWrapSelect select, body .PanneauAge select {
+    font-size: 1.5em;
+    text-align: center!important;
+    cursor: pointer;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:link, 
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:visited, 
+.OsProduit.api.MODE_AUTO_PETIT .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec, 
+.OsProduit.api.MODE_AUTO_PETIT .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:active,
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:active, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:link, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:visited {
+    position: relative!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec, .OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:active, .OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:link, .OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:visited {
+    position: relative!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:link span, 
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:visited span, 
+.OsProduit.api.MODE_AUTO_PETIT .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec span, 
+.OsProduit.api.MODE_AUTO_PETIT .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisPrec:active span,
+.OsProduit.api .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv span, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:active span, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:link span, 
+.OsProduit.api.v1 .OsProduitPlanning .OsPlanningDatePicker .PlanningEntete a.PlanningMoisSuiv:visited span {
+    font-size:1.5em;
+}
+
+body .OsProduit.api .OsProduitPlanning .etat0 .ui-state-default, 
+body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-disabled.etat0 .ui-state-default, 
+body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-disabled.etat0 .ui-widget-content .ui-state-default {
+    background-color: var(--secondary-color)!important;
+    border-radius: 50%!important;
+}
+
+.OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-default, 
+.OsProduit.api .OsProduitPlanning .ui-datepicker .ui-widget-content 
+.ui-state-default {
+    width: 100%;
+}
+
+body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-default.ui-state-active, 
+body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-widget-content .ui-state-default.ui-state-active, 
+body .OsProduit.api .OsProduitPlanning .etat1 .ui-state-active,
+.blocFormules,
+.BlocPersonnes,
+.OsProduit.api .ContenuDetailActivite .BlocDescriptionDetail .Activite .Tarifs .Tarif .SuffixeTarif, 
+.OsProduit.api .ContenuDetailActivite .BlocDescriptionDetail .Activite .Tarifs .Tarif .SeparateurPrix, 
+body .OsProduit.api .InfoSupp, 
+body .OsProduit.api .BlocPrixBarre, 
+body .OsProduit.api .BlocPrefixe, 
+.OsProduit.api .TableHotel .TableHotel-Tr.Ligne .Chambre .TDPrix .PrixEtape3 span.Info
+{
+    color: var(--third-color)!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningForm .FormBox:first-child, 
+.BlocMoteurResa .BlocHoraires .entetehoraires {
+    color: var(--third-color)!important;
+    font-size: 1.2em!important;
+}
+
+body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-default, 
+body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-widget-content .ui-state-default {
+    color : var(--fourth-color)!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningForm .CibleFA {
+    font-size:1.5em;
+    color: var(--third-color)!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningForm .Personnes {
+    width: 100px;
+}
+
+.OsProduit.api #OsPlanning .OsPlanningForm .CibleFA .BlocFormuleAge .BlocFormules .ListeFormules, .OsProduit.api #OsPlanning .OsPlanningForm .CibleFA .BlocFormuleAge .BlocPersonnes .ListePersonnes, .OsProduit.api .OsMoteurResultat #OsPlanning .ContenuDetailChambre .BlocDescriptionDetail .CibleFA .BlocFormuleAge .BlocFormules .ListeFormules, .OsProduit.api .OsMoteurResultat #OsPlanning .ContenuDetailChambre .BlocDescriptionDetail .CibleFA .BlocFormuleAge .BlocPersonnes .ListePersonnes {
+    display: inline-block;
+    width: calc(100% - 100px);
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningForm .FormBox.Prix .PrixValeur {
+    width: 100%;
+    background: var(--fourth-color)!important;
+    color: var(--third-color)!important;
+}
+
+.OsProduit.api .OsProduitPlanning .OsPlanningForm .FormBox.Prix {
+    padding: 5px 0!important;
+    float: none!important;
+    width: 100%!important;
+}
+
+.OsProduit.api .OsProduitPlanning .BtnReserver,
+body .OsProduitRefuge .osproduitrefuge .ligneajout .btn-valider:hover, 
+body .OsPanierPopIn.os-overlay .Bouton.BoutonAjouter a:hover, 
+body .OsWProduitBillet .OsTarifBillet .btn-valider span:hover, 
+body .OsProduit.api .ContenuDetailBillet .BtnReserver a:hover,
+body .BlocOverlayCttvert .BlocBoutons .BoutonSuivant a:hover, 
+body .BlocOverlayCttvert .BoutonReserver a:hover, 
+body .OsUnicampPopIn.os-overlay .BoutonAjouter a:hover, 
+body .OsProduit.api .OsProduitPlanning .BtnReserver:hover, 
+body .OverlayChoixSupplements.os-overlay a.SubmitReserverChambres:hover, 
+body .BlocMoteurResa .BlocFinalisation .BlocBoutonReserver a:hover, 
+body .OsProduit.api.OPLM .ContenuDetailLocMat .BtnReserver a:hover, 
+body .OsProduit.api.os-overlay.OPLM .BtnReserver a:hover, 
+body .OsProduit.api .OsMoteurResultat .ContenuDetailChambre .btn-reserver a:hover, 
+body .OsMoteurResultatBody .BtnReserver a:hover, 
+body .BlocReserver a:hover, 
+body .OsProduit.api .ContenuDetailBillet .BtnReserver a:hover, 
+body .oslisteproduitesi .btn-resa:hover, 
+body .osproduitesi .btn-valider:hover,
+body .OsProduit.api .OsProduitPlanning .BtnReserver {
+    width: 100%;
+    background: var(--secondary-color)!important;
+    color: var(--third-color)!important;
+}
+
+body .OsProduitRefuge .osproduitrefuge .ligneajout .btn-valider, 
+body .OsFormulaire.os-overlay .BoutonSuivant a, 
+body .OsFormulaire.os-overlay .BoutonSuivant a:link, 
+body .OsFormulaire.os-overlay .BoutonSuivant a:active, 
+body .OsFormulaire.os-overlay .BoutonSuivant a:visited, 
+body .OsPanierPopIn.os-overlay .Bouton.BoutonAjouter a, 
+body .OsPanierPopIn.os-overlay .Bouton.BoutonAjouter a:link, 
+body .OsPanierPopIn.os-overlay .Bouton.BoutonAjouter a:active, 
+body .OsPanierPopIn.os-overlay .Bouton.BoutonAjouter a:visited
+{
+    background: var(--secondary-color)!important;
+    color: var(--third-color)!important;
+}
+
+.OsUnicampPopIn.os-overlay.Lock .close, 
+.OsPanierPopIn.os-overlay.panier-resultat .close, 
+.OsPanierPopIn.os-overlay.Lock .close, 
+.OsPanierPopIn .close, 
+.os-overlay .FermerOverlay, 
+.OsPanierPopIn.os-overlay.Lock .close {
+    background: url(../images/icon/ico-close.svg) no-repeat scroll right 5px center var(--secondary-color)!important;
+}
+
+.legend {
+    position: relative;
+    color: var(--third-color);
+}
+
+.legend::after {
+    content: "";
+    left: -25px;
+    height: 20px;
+    width: 20px;
+    background-color: var(--secondary-color);
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    position: absolute;
+    border-radius: 50%;
+}
+
+.espace article img {
+    width:100%;
+    height: 200px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.espace article h4 {
+    padding: 10px!important;
+    text-align: center;
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 5px auto 15px auto;
+}
+
+.espace article ul,
+.ul-espace{
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.ul-espace li i {
+    margin-right:10px;
+}
+
+.espace article ul li i {
+    margin-right: 10px;
+}
+
+/* PAGE REPAS */
+.repas {
+    text-align: center;
+    padding:30px;
+}
+
+.repas h3 {
+    color:var(--secondary-color);
+    margin-bottom:30px!important;
+    font-weight: 300;
+}
+
+.repas h4 {
+    background: var(--main-color);
+    color:var(--third-color);
+    width: 100%;
+    padding:15px;
+}
+
+.repas ul {
+    list-style-type: none;
+    font-size:1.2em;
+    margin-top:15px;
+}
+
+/* ANIMAUX */
+
+.container-video {
+    margin: 0;
+    padding: 0;
+    max-height: 80vh;
+    overflow: hidden;
+    margin-top:70px;
+}
+
+.container-video video {
+    width: 100%;
+    height:80vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+/* ACTIVITES */
+
+.activite {
+    border-radius: 15px;
+    -webkit-box-shadow: 2px 4px 19px -5px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 19px -5px rgba(0,0,0,0.75);
+    background-color: var(--third-color);
+    padding: 20px;
+}
+
+.activite img {
+    width: 100%;
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.activite h2 {
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.activite a {
+    color:var(--secondary-color)!important;
+    text-decoration: underline;
+    float: right;
+    margin-right: 20px;
+}
+
+
+/* CONTACT */
+
+
+.contact-tel {
+    margin : 30px 8.75%;
+    width : 80%;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.tel { 
+    border : 1px solid  var(--main-color);
+    height : auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin : 10px 30px;
+}
+
+.tel .text {
+    padding : 10px 40px; 
+    background : var(--main-color);
+    color:  var(--third-color);
+}
+
+.tel .num {
+    padding : 10px 40px; 
+    background : var(--third-color);
+    color: var(--main-color);
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+/* TARIFS */
+.customers {
+    border-collapse: collapse;
+    margin : 10px auto;
+    text-align: center;
+    font-size : 1.2em;
+    width: 100%;
+}
+  
+.customers td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+.customers tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+  
+.customers tr:hover {
+    background-color: #ddd;
+}
+  
+.customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: var(--main-color);
+    color: var(--third-color);
+}
+
+tr th.th-orange {
+    background-color: var(--secondary-color);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width:1476px){
+    nav ul {
+        display: none;
+    }
+    nav {
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+    .open-responsive-menu {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+
+@media screen and (max-width:900px){
+    .contact-delete {
+        display: none;
+    }
+    .contact-add {
+        display: block;
+        margin: 50px auto;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:767px){
+    .description a {
+        display:block;
+        margin: 0 auto;
+    }
+
+    .description p {
+        margin-top:10px;
+    }
+
+    h1 {
+        display: block;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        margin:0 auto;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:550px){
+    h2, h3, h4 {
+        text-align: center;
+    }
+    #logo__moulin {
+        width: 100%!important;
+    }
+    ul {
+        columns: 1!important;
+        -webkit-columns: 1!important;
+        -moz-columns: 1!important;
+        margin: 30px auto;
+    }
+}

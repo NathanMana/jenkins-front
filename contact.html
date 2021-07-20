@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez-nous ! Contactez le Moulin des Forges" />
+    <meta name="author" content="Famille Manaranche - Le Moulin des Forges">
+    <meta name="keywords" content="contact, rivière, logement au milieu des animaux, hotel parmis les animaux, faune, flore, roulottes, logement en Mayenne, logement à Sainte-Suzanne, Sainte-Suzanne, Sainte-Suzanne-et-Chammes, Mayenne, 53, vacance, vacances, arrêt en Mayenne">
+    <meta name="copyright" content="Famille Manaranche - Le Moulin des Forges">
+    <meta property="og:title" content="Contactez-nous - Moulin des Forges" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content= "public/images/activites/animaux.jpg" />
+    <meta property="og:url" content="https://lemoulindesforges53.fr/contact.html" />
+    <meta property="og:description" content="Contactez-nous ! Contactez le Moulin des Forges" />  
+    <title>Contactez-nous - Moulin des Forges</title>
+    <link rel="shortcut icon" href="public/images/logo/favicon.png">
+    <link rel="stylesheet" href="public/css/app.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://www.lemoulindesforges53.fr/activites.html",
+            "name": "Contactez-nous",
+            "description": "Contactez-nous ! Contactez le Moulin des Forges"
+        }
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145883421-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145883421-1');
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img style="width:300px;margin:15px;" src="public/images/logo/logo-side.svg" alt="Logo des chambres d'hôtes et des roulottes du Moulin des Forges"></a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="chambre.html">Chambres d'hôtes</a></li>
+                <li><a href="roulotte.html">Roulottes</a></li>
+                <li><a href="repas.html">Repas</a></li>
+                <li><a href="tarif.html">Tarifs</a></li>
+                <li><a href="animaux.html">Animaux</a></li>
+                <li><a href="activites.html">Activités</a></li>
+                <li class="active"><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="#" onclick="openSlideMenu()">
+                <div class="open-responsive-menu">
+                    <div class="sous-menu"></div>
+                </div>
+            </a>
+            <div class='responsive-menu'>
+                <ul class='auto'>
+                    <li><a href='index.html'>Accueil</a></li>
+                    <li><a href='chambre.html'>Chambres d'hôtes</a></li>
+                    <li><a href='roulotte.html'>Roulottes</a></li>
+                    <li><a href='repas.html'>Repas</a></li>
+                    <li><a href='tarif.html'>Tarifs</a></li>
+                    <li><a href='animaux.html'>Animaux</a></li>
+                    <li><a href='activites.html'>Activités</a></li>
+                    <li class="active"><a href='contact.html'>Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid" style="margin-top:70px!important">
+        <div class="row">
+            <div class="col-5 contact-delete" style="overflow:hidden;padding-left:0">
+                <img src="public/images/contact-us.jpg" alt="Contactez-nous !!!!">
+            </div>
+            <div class="col-7 flex__container contact-add">
+                <h1>Nous contacter</h1>
+                <div class="contact-tel">
+                    <div class="tel">
+                        <div class="text">Portable</div>
+                        <div class="num">06 46 31 23 41</div>
+                    </div>
+                    <div class="tel">
+                        <div class="text">Fixe</div>
+                        <div class="num">02 72 95 01 34</div>
+                    </div> 
+                </div>
+                <hr>
+                <form action="src/contactform.php" method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Votre adresse mail</label>
+                        <input name="mail" type="email" class="form-control" id="exampleFormControlInput1" placeholder="nom@exemple.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Objet du message</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="subject">
+                        <option>Renseignements compl&eacute;mentaires</option>
+                        <option>Disponibilit&eacute;s</option>
+                        <option>Prix</option>
+                        <option>Animaux</option>
+                        <option>Activit&eacute;s</option>
+                        <option>Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Message</label>
+                        <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button class="btn block" name="submit" type="submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="chambre.html">Chambres d'hôtes</a></li>
+                    <li><a href="roulotte.html">Roulottes</a></li>
+                    <li><a href="repas.html">Repas</a></li>
+                    <li><a href="tarif.html">Tarifs</a></li>
+                    <li><a href="animaux.html">Animaux</a></li>
+                    <li><a href="activites.html">Activités</a></li>
+                    <li class="active"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4 style="text-align:center;">Partagez vos meilleurs<br> moments avec nous !</h4>
+                <div class="flex__container__row social-media">
+                     <a href="https://www.facebook.com/moulindesforges/" target="_blank"><img src="public/images/reseaux-sociaux/facebook.svg" alt="Rejoignez-nous sur notre page Facebook"></a>
+                    <a href="https://www.instagram.com/moulindesforges/" target="_blank"><img src="public/images/reseaux-sociaux/instagram.svg" alt="Rejoignez-nous sur notre page Instagram"></a>
+                </div>
+            </div>
+            <span class="block">Le Moulin des Forges 53 &copy 2019 Tous droits réservés.</span>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="public/js/app.js"></script>
+</body>
+</html>
