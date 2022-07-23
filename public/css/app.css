@@ -664,7 +664,7 @@ body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-widget-content .ui-sta
 
 .OsProduit.api .OsProduitPlanning .OsPlanningForm .FormBox.Prix .PrixValeur {
     width: 100%;
-    background: var(--fourth-color)!important;
+    background: var(--main-color)!important;
     color: var(--third-color)!important;
 }
 
@@ -990,4 +990,48 @@ tr th.th-orange {
         -moz-columns: 1!important;
         margin: 30px auto;
     }
+}
+
+/* FORCER MAJ VISUELLE API CALENDRIER */
+.ui-widget.ui-datepicker td.etat1 {
+    background: #2f8c9f!important;
+    border-radius: 50%!important;
+    transition: 0.2s;
+}
+.ui-widget.ui-datepicker td.etat1:hover {
+    background: var(--main-color)!important;
+    border-radius: 50%!important;
+}
+.api .OsDatePicker.OsDatePickerInline.ui-datepicker td.etat1.ui-datepicker-current-day a {
+    background: none!important;
+}
+.api .OsDatePicker.OsDatePickerInline.ui-datepicker td.etat1 a {
+    background: transparent!important;
+    color: #fff!important;
+    font-size: 1.2rem!important;
+}
+.api .OsDatePicker.OsDatePickerInline.ui-datepicker td.etat1 a:hover {
+    background: none!important;
+    color: #fff!important;
+}
+body .OsProduit.api .OsProduitPlanning .etat0 .ui-state-default, 
+body .OsProduit.api .OsProduitPlanning .ui-datepicker .ui-state-disabled.etat0 .ui-state-default
+{
+    font-size: 1.2rem!important;
+}
+.OsPlanningForm .CibleFA .Formules,
+.LigneFormule,
+.OsProduit.api .OsProduitPlanning .OsPlanningForm .Personnes {
+    color: var(--main-color)!important;
+}
+.LigneFormule {
+    font-size: 1.2rem;
+}
+
+.OsProduit.api .osw-row-item .osw-cell {
+    justify-content: center;
+}
+.OsProduit.api #OsPlanning .OsPlanningForm .CibleFA .BlocFormuleAge .BlocPersonnes .ListePersonnes .Personne.L1.premier {
+    justify-content: center;
+    align-items: center;
 }
