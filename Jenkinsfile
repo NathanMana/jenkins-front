@@ -1,17 +1,22 @@
 pipeline {
     agent any
-
+    tools {
+        nodejs 'default-nodejs'
+    }
     stages {
-        stage('Init') {
+        stage('Startup') {
             steps {
-                echo 'Initializing..'
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                script {
+                    sh 'npm install'
+                }
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                echo 'Running pytest..'
+                script {
+                    sh 'npm run test'
+                }
             }
         }
         stage('Build') {

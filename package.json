@@ -1,0 +1,22 @@
+{
+  "name": "le-moulin-des-forges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanMana/Le-Moulin-des-Forges.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanMana/Le-Moulin-des-Forges/issues"
+  },
+  "homepage": "https://github.com/NathanMana/Le-Moulin-des-Forges#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
