@@ -6,9 +6,5 @@ describe('Random tests', function () {
     it('should return "hello world"', function () {
         assert.equal(helloWorld(), 'Hello World');
     });
-
-    it('should fail', function () {
-        assert.equal(helloWorld(), 'Hellod');
-    });
   });
 });
