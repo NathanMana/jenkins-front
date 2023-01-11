@@ -1,10 +1,8 @@
 pipeline {
-    agent {
-        docker
-        dockerfile true
-    }
+    agent any
     tools {
         nodejs 'node'
+        dockerTools 'docker'
     }
     stages {
         stage('Startup') {
@@ -23,6 +21,9 @@ pipeline {
             }
         }
         stage('Build') {
+            agent {
+                dockerfile true
+            }
             steps {
                 echo 'Building..'
                 echo 'Running docker build -t moulin'
