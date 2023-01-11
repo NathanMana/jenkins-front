@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
         nodejs 'node'
+        docker
     }
     stages {
         stage('Startup') {
@@ -21,9 +22,7 @@ pipeline {
         }
         stage('Build') {
             agent {
-                dockerfile {
-                    label 'docker'
-                } 
+                dockerfile true
             }
             steps {
                 echo 'Building..'
