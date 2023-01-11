@@ -20,9 +20,10 @@ pipeline {
             }
         }
         stage('Build') {
+            agent { dockerfile true }
             steps {
                 echo 'Building..'
-                echo 'Running docker build -t sntshk/cotu .'
+                echo 'Running docker build -t moulin'
             }
         }
         stage('Publish') {
