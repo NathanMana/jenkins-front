@@ -20,7 +20,11 @@ pipeline {
             }
         }
         stage('Build') {
-            agent { dockerfile true }
+            agent {
+                dockerfile {
+                    label 'docker'
+                } 
+            }
             steps {
                 echo 'Building..'
                 echo 'Running docker build -t moulin'
