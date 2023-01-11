@@ -1,5 +1,6 @@
 pipeline {
     agent {
+        docker
         dockerfile true
     }
     tools {
