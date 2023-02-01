@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     sh 'npm install'
-                    discordSend description: 'Installing the project', footer: '', image: 'https://i.kym-cdn.com/photos/images/masonry/002/153/109/868.jpg', link: 'env.BUILD_URL', result: '', scmWebUrl: '', thumbnail: 'https://ftp.halifax.rwth-aachen.de/jenkins/art/jenkins-logo/96x96/logo.png', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
+                    discordSend description: 'Installing the project', footer: '', image: '', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
                 echo 'Testing..'
                 script {
                     sh 'npm run test'
-                    discordSend description: 'Running the tests', footer: '', image: 'https://i.kym-cdn.com/photos/images/masonry/002/153/109/868.jpg', link: 'env.BUILD_URL', result: '', scmWebUrl: '', thumbnail: 'https://ftp.halifax.rwth-aachen.de/jenkins/art/jenkins-logo/96x96/logo.png', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
+                    discordSend description: 'Running the tests', footer: '', image: '', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
                 }
             }
         }
@@ -34,22 +34,27 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo 'Running docker build -t moulin'
-                discordSend description: 'Building the docker image', footer: '', image: 'https://i.kym-cdn.com/photos/images/masonry/002/153/109/868.jpg', link: 'env.BUILD_URL', result: '', scmWebUrl: '', thumbnail: 'https://ftp.halifax.rwth-aachen.de/jenkins/art/jenkins-logo/96x96/logo.png', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
+                discordSend description: 'Building the docker image', footer: '', footer: '', image: '', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
             }
         }
         stage('Publish') {
             steps {
                 echo 'Publishing..'
                 echo 'Running docker push..'
-                discordSend description: 'Publishing the docker image', footer: '', image: 'https://i.kym-cdn.com/photos/images/masonry/002/153/109/868.jpg', link: 'env.BUILD_URL', result: '', scmWebUrl: '', thumbnail: 'https://ftp.halifax.rwth-aachen.de/jenkins/art/jenkins-logo/96x96/logo.png', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
+                discordSend description: 'Publishing the docker image', footer: '', image: '', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
             }
         }
         stage('Cleanup') {
             steps {
                 echo 'Cleaning..'
                 echo 'Running docker rmi..'
-                discordSend description: 'Cleaning everything up', footer: '', image: 'https://i.kym-cdn.com/photos/images/masonry/002/153/109/868.jpg', link: 'env.BUILD_URL', result: '', scmWebUrl: '', thumbnail: 'https://ftp.halifax.rwth-aachen.de/jenkins/art/jenkins-logo/96x96/logo.png', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
+                discordSend description: 'Cleaning everything up', footer: '', image: '', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
             }
+        }
+    }
+    post {
+        failure {
+            discordSend description: "Failure on stage ${FAILED_STAGE}", footer: '', image: '', link: '', result: 'FAILED', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: 'https://discord.com/api/webhooks/1070271483512893512/kI5i_3VgUYpDPdYbUJ9O-HbSnA3J6TtOCpVEumuE0txIv2lc7DZtbfAlYeIxUzNdR4D6'
         }
     }
 }
