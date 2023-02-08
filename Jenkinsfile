@@ -1,6 +1,11 @@
 def FAILED_STAGE
 
 pipeline {
+    environment {
+        registry = "mayth3f0rc3bwizu/jenkins-project"
+        registryCredential = 'dockerhub'
+        dockerImage = ''
+    }
     agent {
         docker { 
             image 'node:16.13.1-alpine' 
@@ -36,7 +41,7 @@ pipeline {
                 script {
                     FAILED_STAGE=env.STAGE_NAME
                     echo 'Building..'
-                    def buildOutput = sh(returnStdout: true, script: 'echo "Running docker build -t moulin https://github.com/NathanMana/jenkins-front.git"')
+                    def buildOutput = sh(returnStdout: true, script: 'dockerImage = docker.build https://github.com/NathanMana/jenkins-front.git')
                     discordSend description: 'Building the docker image\n Running: docker build -t moulin\n'+buildOutput, footer: '', image: 'https://media.tenor.com/L2yGz-RI-KYAAAAd/the-voices-meme.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
            }
