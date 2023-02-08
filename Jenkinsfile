@@ -5,6 +5,7 @@ pipeline {
         docker { 
             image 'node:16.13.1-alpine' 
             args '-u root:root'
+            alwaysPull true
         }
     }
     tools {
