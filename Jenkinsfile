@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             agent {
                 dockerfile true
-                alwaysPull true
+               
             }
             steps {
                 script {
