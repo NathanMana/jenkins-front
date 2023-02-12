@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t NathanMana/jenkins-front:latest .'
+                sh 'docker build -t NathanMana/jenkins-front:latest . -v $(which docker):/usr/bin/docker'
                 script {
                     FAILED_STAGE=env.STAGE_NAME
                     echo 'Building..'
