@@ -3,7 +3,7 @@ def FAILED_STAGE
 pipeline {
     environment {
         registry = "mayth3f0rc3bwizu/jenkins-project"
-        registryCredential = 'dockerhub'
+        registryCredential = 'docker-hub'
         dockerImage = ''
     }
     agent any
@@ -62,6 +62,10 @@ pipeline {
                 script {
                     FAILED_STAGE=env.STAGE_NAME
                     echo 'Publishing..'
+                    
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+                        dockerImage.push()
+                    }
                     def publishOutput = sh(returnStdout: true, script: 'echo "Running docker push.."')
                     discordSend description: 'Publishing the docker image\n Running: docker push\n'+publishOutput, footer: '', image: 'https://media.tenor.com/3hNFj_XibiYAAAAM/cat.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
