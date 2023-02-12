@@ -38,10 +38,10 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'docker build -t NathanMana/jenkins-front:latest .'
                 script {
                     FAILED_STAGE=env.STAGE_NAME
                     echo 'Building..'
-                    dockerImage = docker.build('NathanMana/jenkins-front')
                     def buildOutput = sh(returnStdout: true, script: 'echo Building right now')
                     discordSend description: 'Building the docker image\n Running: docker build -t moulin\n'+buildOutput, footer: '', image: 'https://media.tenor.com/L2yGz-RI-KYAAAAd/the-voices-meme.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
