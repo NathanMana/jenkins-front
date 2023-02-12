@@ -5,9 +5,6 @@ pipeline {
         registry = "mayth3f0rc3bwizu/jenkins-project"
         registryCredential = 'dockerhub'
         dockerImage = ''
-        tools {
-            'org.jenkinsci.plugins.docker.commons.tools.DockerTool'  'docker'
-        }
     }
     agent {
         docker { 
@@ -17,6 +14,7 @@ pipeline {
     }
     tools {
         nodejs 'node'
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool'  'docker'
         
     }
     stages {
