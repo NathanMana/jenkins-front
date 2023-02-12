@@ -49,7 +49,7 @@ pipeline {
                     FAILED_STAGE=env.STAGE_NAME
                     echo 'Building..'
           
-                    dockerImage =  docker.build("NathanMana/jenkins-front:latest")
+                    dockerImage =  docker.build("nathanmana/jenkins-front:latest")
                     
                    
                     def buildOutput = sh(returnStdout: true, script: 'echo Building ...')
