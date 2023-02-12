@@ -7,7 +7,6 @@ pipeline {
         dockerImage = ''
     }
     agent {
-        dockerfile true
         docker { 
             image 'node:16.13.1-alpine' 
             args '-u root:root'
