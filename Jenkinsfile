@@ -63,7 +63,7 @@ pipeline {
                     FAILED_STAGE=env.STAGE_NAME
                     echo 'Publishing..'
                     
-                    docker.withRegistry(registry, 'docker-hub') {
+                    docker.withRegistry('https://hub.docker.com/repository/docker/mayth3f0rc3bwizu/jenkins-project/', 'docker-hub') {
                         dockerImage.push()
                     }
                     def publishOutput = sh(returnStdout: true, script: 'echo "Running docker push.."')
