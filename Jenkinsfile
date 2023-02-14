@@ -5,6 +5,7 @@ pipeline {
         registry = "mayth3f0rc3bwizu/jenkins-project"
         registryCredential = 'docker-hub'
         dockerImage = ''
+        ANSIBLE_PRIVATE_KEY=credentials('5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb')
     }
     agent any
     tools {
@@ -77,9 +78,9 @@ pipeline {
         }
         stage ('Deploying instance') {
             steps {
-                sh "ansible --version"
-                sh "ansible-playbook --version"
-                sh "terraform -v"
+                sh "terraform init"
+                sh "terraform destroy -auto-approve"
+                sh "terraform apply -var private_key=$ANSIBLE_PRIVATE_KEY -auto-approve"
             }
         }
     }

@@ -18,6 +18,10 @@ variable "key_name" {
   default = "privateKey"
 }
 
+variable "private_key" {
+  type = string
+}
+
 #Init the backend
 terraform {
   backend "s3" {
@@ -128,11 +132,11 @@ resource "aws_instance" "randomInstance" {
       host        = self.public_ip
       type        = "ssh"
       user        = "ubuntu"
-      private_key = file("~/.ssh/id_rsa.pem")
+      private_key = var.private_key
     }
   }
 
   provisioner "local-exec" {
-    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.public_ip}, -u ubuntu --private-key=~/.ssh/id_rsa.pem play.yml"
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.public_ip}, -u ubuntu --private-key=${var.private_key} playbook.yml"
   }
 }
