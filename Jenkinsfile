@@ -78,6 +78,7 @@ pipeline {
         }
         stage ('Deploying instance') {
             steps {
+                sh "cd deployment"
                 sh "terraform init"
                 sh "terraform destroy -auto-approve"
                 sh 'terraform apply -var="private_key=$ANSIBLE_PRIVATE_KEY" -auto-approve'
