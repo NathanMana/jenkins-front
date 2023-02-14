@@ -71,7 +71,7 @@ pipeline {
                 script {
                     FAILED_STAGE=env.STAGE_NAME
                     echo 'Cleaning..'
-                    def cleanupOutput = sh(returnStdout: true, script: 'docker stop $(docker ps -q) || docker rm $(docker ps -a -q) || docker rmi $(docker images -q -f dangling=true)')
+                    def cleanupOutput = sh(returnStdout: true, script: 'docker stop $(docker ps -q) || docker rm $(docker ps -a -q) || docker rmi $(docker images -q -f dangling=true) || docker image prune -a -f')
                     discordSend description: 'Cleaning everything up\n Running: docker rmi\n'+cleanupOutput, footer: '', image: 'https://media.tenor.com/fTTVgygGDh8AAAAM/kitty-cat-sandwich.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
             }
