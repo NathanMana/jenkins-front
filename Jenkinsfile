@@ -81,7 +81,7 @@ pipeline {
                 sh '''
                     cd deployment
                     terraform init
-                    terraform destroy -auto-approve
+                    terraform destroy -var="private_key=$ANSIBLE_PRIVATE_KEY" -auto-approve
                     terraform apply -var="private_key=$ANSIBLE_PRIVATE_KEY" -auto-approve
                 '''
             }
