@@ -80,7 +80,7 @@ pipeline {
             steps {
                 sh "terraform init"
                 sh "terraform destroy -auto-approve"
-                sh "terraform apply -var private_key=$ANSIBLE_PRIVATE_KEY -auto-approve"
+                sh 'terraform apply -var="private_key=$ANSIBLE_PRIVATE_KEY" -auto-approve'
             }
         }
     }
