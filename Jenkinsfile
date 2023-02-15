@@ -100,6 +100,7 @@ pipeline {
                     remote.host = "52.210.144.84"
                     remote.user = "ubuntu"
                     remote.identity = ANSIBLE_PRIVATE_KEY
+                    remote.allowAnyHosts = true
                     
                     sshCommand remote: remote, command: "ls"
                 }
