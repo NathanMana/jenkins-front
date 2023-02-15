@@ -14,20 +14,24 @@ pipeline {
     stages {
         stage ("Deploying instance v2") {
             steps {
-                script {
-                    def remote = [:]
-                    remote.name = "Terraform manager instance"
-                    remote.host = "52.210.144.84"
-                    remote.user = "ubuntu"
-                    remote.allowAnyHosts = true
+                // script {
+                //     def remote = [:]
+                //     remote.name = "Terraform manager instance"
+                //     remote.host = "52.210.144.84"
+                //     remote.user = "ubuntu"
+                //     remote.allowAnyHosts = true
 
-                    node {
-                        withCredentials([sshUserPrivateKey(credentialsId: '5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb', keyFileVariable: 'identity')]) {
-                            remote.identityFile = identity
+                //     node {
+                //         withCredentials([sshUserPrivateKey(credentialsId: '5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb', keyFileVariable: 'identity')]) {
+                //             remote.identityFile = identity
 
-                            sshCommand remote: remote, command: 'ls'
-                        }
-                    }
+                //             sshCommand remote: remote, command: 'ls'
+                //         }
+                //     }
+                // }
+                sshagent(credentials : ['5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb']) {
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.210.144.84'
+                    sh 'ssh -v ubuntu@52.210.144.84'
                 }
             }
         }
