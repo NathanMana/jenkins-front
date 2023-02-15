@@ -6,6 +6,7 @@ pipeline {
         registryCredential = 'docker-hub'
         dockerImage = ''
         ANSIBLE_PRIVATE_KEY=credentials('5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb')
+        discordImage = 'https://www.zend.com/sites/default/files/image/2019-09/logo-jenkins.jpg'
     }
     agent any
     tools {
@@ -26,7 +27,7 @@ pipeline {
                 script {
                     FAILED_STAGE=env.STAGE_NAME
                     def installOutput = sh(returnStdout: true, script: 'npm install')
-                    discordSend description: 'Installing the project\n Running: npm install\n'+installOutput, footer: '', image: 'https://i.pinimg.com/originals/e7/27/fc/e727fcca2ea75670e14297f353921ed2.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
+                    discordSend description: 'Installing the project\n Running: npm install\n'+installOutput, footer: '', image: discordImage, link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
             }
         }
@@ -36,7 +37,7 @@ pipeline {
                 script {
                     FAILED_STAGE=env.STAGE_NAME
                     def testOutput = sh(returnStdout: true, script: 'npm run test')
-                    discordSend description: 'Running the tests\n Running: npm run test\n'+testOutput, footer: '', image: 'https://media.tenor.com/arqlNu8gyJYAAAAC/cat-cat-jumping.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
+                    discordSend description: 'Running the tests\n Running: npm run test\n'+testOutput, footer: '', image: discordImage, link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
             }
         }
@@ -48,7 +49,7 @@ pipeline {
                     echo 'Building..'  
                     dockerImage =  docker.build("mayth3f0rc3bwizu/jenkins-project:latest")
                     def buildOutput = sh(returnStdout: true, script: 'echo Building')
-                    discordSend description: 'Building the docker image\n Running: docker build -t moulin\n'+buildOutput, footer: '', image: 'https://media.tenor.com/L2yGz-RI-KYAAAAd/the-voices-meme.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
+                    discordSend description: 'Building the docker image\n Running: docker build -t moulin\n'+buildOutput, footer: '', image: discordImage, link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
            }
         }
@@ -62,7 +63,7 @@ pipeline {
                         dockerImage.push()
                     }
                     def publishOutput = sh(returnStdout: true, script: 'echo "Running docker push.."')
-                    discordSend description: 'Publishing the docker image\n Running: docker push\n'+publishOutput, footer: '', image: 'https://media.tenor.com/3hNFj_XibiYAAAAM/cat.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
+                    discordSend description: 'Publishing the docker image\n Running: docker push\n'+publishOutput, footer: '', image: discordImage, link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
             }
         }
@@ -79,7 +80,7 @@ pipeline {
                             docker rmi registry.hub.docker.com/mayth3f0rc3bwizu/jenkins-project
                         '''
                     )
-                    discordSend description: 'Cleaning everything up\n Running: docker rmi\n'+cleanupOutput, footer: '', image: 'https://media.tenor.com/fTTVgygGDh8AAAAM/kitty-cat-sandwich.gif', link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
+                    discordSend description: 'Cleaning everything up\n Running: docker rmi\n'+cleanupOutput, footer: '', image: discordImage, link: '', result: 'SUCCESS', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
                 }
             }
         }
@@ -96,7 +97,7 @@ pipeline {
     }
     post {
         failure {
-            discordSend description: "Failure on stage ${FAILED_STAGE}", footer: '', image: 'https://media.tenor.com/dVaFKdfc3XwAAAAM/shaking-cat.gif', link: '', result: 'FAILED', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
+            discordSend description: "Failure on stage ${FAILED_STAGE}", footer: '', image: discordImage, link: '', result: 'FAILED', scmWebUrl: '', thumbnail: '', title: 'Jenkins Build', webhookURL: DISCORD_WEBHOOK_URL
         }
     }
 }
