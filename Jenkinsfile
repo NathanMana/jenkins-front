@@ -83,15 +83,15 @@ pipeline {
                 }
             }
         }
-        stage ('Deploying instance') {
-            steps {
-                sh '''
-                    cd deployment
-                    terraform init
-                    terraform apply -var="private_key=$ANSIBLE_PRIVATE_KEY" -auto-approve
-                '''
-            }
-        }
+        // stage ('Deploying instance') {
+        //     steps {
+        //         sh '''
+        //             cd deployment
+        //             terraform init
+        //             terraform apply -var="private_key=$ANSIBLE_PRIVATE_KEY" -auto-approve
+        //         '''
+        //     }
+        // }
     }
     post {
         failure {
