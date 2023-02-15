@@ -17,10 +17,7 @@ pipeline {
                 sshagent(credentials : ['5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb']) {
                     sh '''
                         ssh -o StrictHostKeyChecking=no ubuntu@52.210.144.84
-                        ssh ubuntu@52.210.144.84 "cd terraform/deploy"
-                        ssh ubuntu@52.210.144.84 "terraform init"
-                        ssh ubuntu@52.210.144.84 "terraform destroy"
-                        ssh ubuntu@52.210.144.84 "terraform apply"
+                        ssh ubuntu@52.210.144.84 "cd terraform/deploy && terraform init && terraform destroy -auto-approve && terraform apply -auto-approve"
                     '''
                 }
             }
