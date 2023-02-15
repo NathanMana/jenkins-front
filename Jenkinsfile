@@ -12,6 +12,20 @@ pipeline {
         nodejs 'node'
     }
     stages {
+        stage ("Deploying instance v2") {
+            steps {
+                script {
+                    def remote = [:]
+                    remote.name = "Terraform manager instance"
+                    remote.host = "52.210.144.84"
+                    remote.user = "ubuntu"
+                    remote.identity = ANSIBLE_PRIVATE_KEY
+                    remote.allowAnyHosts = true
+                    
+                    sshCommand remote: remote, command: "ls"
+                }
+            }
+        }
         stage('Initialize'){
             steps {
                 script{
@@ -92,20 +106,7 @@ pipeline {
         //         '''
         //     }
         // }
-        stage ("Deploying instance v2") {
-            steps {
-                script {
-                    def remote = [:]
-                    remote.name = "Terraform manager instance"
-                    remote.host = "52.210.144.84"
-                    remote.user = "ubuntu"
-                    remote.identity = ANSIBLE_PRIVATE_KEY
-                    remote.allowAnyHosts = true
-                    
-                    sshCommand remote: remote, command: "ls"
-                }
-            }
-        }
+
     }
     post {
         failure {
