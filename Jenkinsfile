@@ -12,16 +12,6 @@ pipeline {
         nodejs 'node'
     }
     stages {
-        stage ("Deploying instance v2") {
-            steps {
-                sshagent(credentials : ['5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@52.210.144.84
-                        ssh ubuntu@52.210.144.84 "cd terraform/deploy && terraform init && terraform destroy -auto-approve && terraform apply -auto-approve"
-                    '''
-                }
-            }
-        }
         stage('Initialize'){
             steps {
                 script{
@@ -93,16 +83,16 @@ pipeline {
                 }
             }
         }
-        // stage ('Deploying instance') {
-        //     steps {
-        //         sh '''
-        //             cd deployment
-        //             terraform init
-        //             terraform apply -var="private_key=$ANSIBLE_PRIVATE_KEY" -auto-approve
-        //         '''
-        //     }
-        // }
-
+        stage ("Deploying instance") {
+            steps {
+                sshagent(credentials : ['5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb']) {
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no ubuntu@52.210.144.84
+                        ssh ubuntu@52.210.144.84 "cd terraform/deploy && terraform init && terraform destroy -auto-approve && terraform apply -auto-approve"
+                    '''
+                }
+            }
+        }
     }
     post {
         failure {
