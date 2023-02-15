@@ -22,12 +22,10 @@ pipeline {
                     remote.allowAnyHosts = true
 
                     node {
-                        withCredentials([sshUserPrivateKey(credentialsId: '5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb', keyFileVariable: 'identity', passphraseVariable: '')]) {
+                        withCredentials([sshUserPrivateKey(credentialsId: '5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb', keyFileVariable: 'identity')]) {
                             remote.identityFile = identity
-                            
-                            stage("SSH Steps Rocks!") {
-                                sshCommand remote: remote, command: 'ls'
-                            }
+
+                            sshCommand remote: remote, command: 'ls'
                         }
                     }
                 }
