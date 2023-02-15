@@ -31,8 +31,7 @@ pipeline {
                 // }
                 sshagent(credentials : ['5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb']) {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.210.144.84'
-                    sh 'ssh ubuntu@52.210.144.84'
-                    sh 'ls'
+                    sh 'ssh ubuntu@52.210.144.84 "ls"'
                 }
             }
         }
