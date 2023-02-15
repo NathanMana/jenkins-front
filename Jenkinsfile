@@ -19,10 +19,17 @@ pipeline {
                     remote.name = "Terraform manager instance"
                     remote.host = "52.210.144.84"
                     remote.user = "ubuntu"
-                    remote.identity = ANSIBLE_PRIVATE_KEY
                     remote.allowAnyHosts = true
                     
-                    sshCommand remote: remote, command: "ls"
+                    node {
+                        withCredentials([sshUserPrivateKey(credentialsId: '5e1abe13-d9f3-4f10-a499-21bfa5ddfcdb', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
+                            remote.user = userName
+                            remote.identityFile = identity
+                            stage("SSH Steps Rocks!") {
+                                sshCommand remote: remote, command: 'ls'
+                            }
+                        }
+                    }
                 }
             }
         }
